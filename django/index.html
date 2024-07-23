@@ -1,0 +1,171 @@
+<html>
+    <head>
+        <link rel="stylesheet" href="../reveal/reveal.css"/>
+        <link rel="stylesheet" href="../reveal/theme/black.css"/>
+        <link rel="stylesheet" href="../flexbox/flexboxgrid.css"/>
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section data-background-gradient="linear-gradient(to bottom, #003311, #000000)">
+                    <h1>MVC en Django</h1>
+                    <img src="https://juststickers.in/wp-content/uploads/2016/05/django-badge.png" alt="Django">
+                </section>
+                <section>
+                    <section>
+                        <h2>Problemas o limitaciones generales en los equipos de desarrollo</h2>
+                    </section>
+                    <section>
+                        <h3>Código sin estructura</h3>
+                        <div class="row center-xs middle-xs">
+                            <div class="col-xs-9">
+                                <ul>
+                                    <li class="fragment fade-in">
+                                        Al momento de trabajar en equipo los desarrolladores tienden
+                                        a desarrollar por su cuenta, sin definir una estructura organizada que
+                                        promueve un estándar o la reutilización de código.
+                                    </li>
+                                    <li class="fragment fade-in">
+                                        Esto puede generar confusión en los miembros del equipo dejando un código
+                                        difícil de mantener y/o escalar.
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="col-xs-3">
+                                <div class="fragment fade-in">
+                                    <iframe src="https://giphy.com/embed/4f8C0XY8TzUvPwvZWm" width="360" height="180"
+                                    frameBorder="0" class="giphy-embed" data-preload></iframe>
+                                </div>
+                            </div>
+                        </div>
+                    </section>
+                    <section>
+                        <h3>Duplicidad de código</h3>
+                        <div class="fragment fade-in">
+                            <iframe src="https://giphy.com/embed/vtf0uP1bwXBg4" width="360" height="190"frameBorder="0" 
+                            class="giphy-embed" allowFullScreen data-preload></iframe>
+                        </div>
+                        <ul>
+                            <li class="fragment fade-in">
+                                Cuando no se tiene una estructura estándar se tiende a repetir código y no se
+                                promueve la reutilización del mismo
+                            </li>
+                            <li class="fragment fade-in">
+                                Esto ocasiona duplicidad innecesaria y dificultad en la trazabilidad de errores
+                            </li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Lentitud y Costo en desarrollo</h3>
+                        <div class="fragment fade-in">
+                            <iframe src="https://giphy.com/embed/3o6MbnqLhX5tJ5wNQQ" width="360" height="280"
+                            frameBorder="0" class="giphy-embed" allowFullScreen data-preload></iframe>
+                        </div>
+                        <ul>
+                            <li class="fragment fade-in">
+                                Al no tener facilidad en la trazabilidad de los errores y no tener una estructura estándar
+                                el desarrollo se vuelve lento, tedioso e ineficiente
+                            </li>
+                            <li class="fragment fade-in">
+                                Esto aumenta los cotos de desarrollo volviendo el proceso ineficaz
+                            </li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>Falta de buenas prácticas y uso de Patrones de Diseño</h3>
+                        <div class="fragment fade-in">
+                            <iframe src="https://giphy.com/embed/l41Ym49ppcDP6iY3C" width="360" height="210"
+                            frameBorder="0" class="giphy-embed" allowFullScreen data-preload></iframe>
+                        </div>
+                        <ul>
+                            <li class="fragment fade-in">
+                                La falta de uso de un código estructurado no promueve las mejores prácticas al momento de generar un código
+                            </li>
+                            <li class="fragment fade-in">
+                                Esto no permite la optimización de recursos, además ocasiona generación y propagación de errores.
+                            </li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h3>¿Existen soluciones a estos problemas?</h3>
+                        <div class="fragment fade-in">
+                            <iframe data-preload src="https://giphy.com/embed/ddugUSEmg5IFM8cPSD" width="360" height="220"frameBorder="0"
+                            class="giphy-embed" allowFullScreen></iframe>
+                        </div>
+                        <ul>
+                            <li class="fragment fade-in">
+                                Existen algunas soluciones estándar para emplear mejores prácticas y mejorar la interacción del equipo
+                                de desarrollo.
+                            </li>
+                            <li class="fragment fade-in">
+                                Una de estas soluciones es un <strong>Modelo Vista Controlador (MVC)</strong>
+                            </li>
+                        </ul>
+                    </section>
+                </section>
+                <section>
+                    <section>
+                        <h2>¿Qué es un Modelo Vista Controlador (MVC)?</h2>
+                        <div style="width:100%">
+                            <iframe data-preload allow="fullscreen" frameBorder="0" height="auto" src="https://giphy.com/embed/ywOnXZw91k51wWWUSZ/video" width="100%">
+                            </iframe>
+                        </div>
+                    </section>
+                    <section>
+                        <h2>Modelo Vista Controlador</h2>
+                        <p class="fragment fade-in">MVC es un patrón de diseño de software que separa una aplicación en tres componentes principales:</p>
+                        <ul>
+                            <li class="fragment fade-in">Modelo</li>
+                            <li class="fragment fade-in">Vista</li>
+                            <li class="fragment fade-in">Controlador</li>
+                        </ul>
+                        <p class="fragment fade-in">Esta separación facilita la organización del código y mejora la capacidad de mantenimiento.</p>
+                    </section>
+                    <section>
+                        <h2>Modelo Vista Controlador</h2>
+
+                    </section>
+                    <section>
+                        <h2>Modelo (Model)</h2>
+                        <p class="fragment fade-in">El modelo es la parte de la aplicación que gestiona la lógica de los datos.</p>
+                        <ul class="fragment fade-in">
+                            <li class="fragment fade-in">Se encarga de acceder y manipular los datos.</li>
+                            <li class="fragment fade-in">No tiene conocimiento de la interfaz de usuario.</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Vista (View)</h2>
+                        <p class="fragment fade-in">La vista es la parte de la aplicación que presenta los datos al usuario.</p>
+                        <ul>
+                            <li class="fragment fade-in">Genera la interfaz de usuario.</li>
+                            <li class="fragment fade-in">Escucha las acciones del usuario y las comunica al controlador.</li>
+                        </ul>
+                    </section>
+                    <section>
+                        <h2>Controlador (Controller)</h2>
+                        <p class="fragment fade-in">El controlador es la parte de la aplicación que maneja la interacción del usuario y las reglas de negocio.</p>
+                        <ul>
+                            <li class="fragment fade-in">Procesa las entradas del usuario.</li>
+                            <li class="fragment fade-in">Aplica las reglas de negocio.</li>
+                            <li class="fragment fade-in">Interactúa con el modelo y selecciona la vista adecuada para presentar la respuesta.</li>
+                        </ul>
+                    </section>
+                </section>
+                <section>
+                    <section data-background-color="rgb(0, 33, 11)" data-background-transition="zoom">
+                        <h2>¿Qué es Django?</h2>
+                        <div style="width:100%">
+                            <iframe data-preload allow="fullscreen" frameBorder="0" height="auto" src="https://giphy.com/embed/ywOnXZw91k51wWWUSZ/video" width="100%">
+                            </iframe>
+                        </div>
+                    </section>
+                    <section>Slide 3</section>
+                </section>
+            </div>
+        </div>
+        <script src="../reveal/reveal.js"></script>
+        <script>
+            Reveal.initialize();
+        </script>
+    </body>
+</html>
